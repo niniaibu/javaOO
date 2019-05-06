@@ -35,15 +35,7 @@ public class Teacher extends Person {
     }
 
     public boolean isTeaching(Student student) {
-        // if (classes.contains(student.klass)) {
-        //     return true;
-        // }
-        for (Klass klass : classes) {
-            if (klass.isIn(student)) {
-                return true;
-            }
-        }
-        return false;
+        return classes.stream().anyMatch(klass -> klass.isIn(student));
     }
 
     public String introduceWith(Student student) {
